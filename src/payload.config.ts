@@ -12,6 +12,7 @@ import { Articles } from "./collections/Articles";
 import { Reviews } from "./collections/Reviews";
 import { Directors } from "./collections/Directors";
 import { Writers } from "./collections/Writers";
+import { Events } from "./collections/Events";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -28,6 +29,7 @@ const collections: CollectionConfig[] = [
   Reviews,
   Directors,
   Writers,
+  Events,
 ];
 
 /**
