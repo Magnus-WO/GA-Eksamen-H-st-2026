@@ -73,6 +73,7 @@ export interface Config {
     anmeldelser: Anmeldelser;
     regissorer: Regissorer;
     skribenter: Skribenter;
+    filmkvelder: Filmkvelder;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -86,6 +87,7 @@ export interface Config {
     anmeldelser: AnmeldelserSelect<false> | AnmeldelserSelect<true>;
     regissorer: RegissorerSelect<false> | RegissorerSelect<true>;
     skribenter: SkribenterSelect<false> | SkribenterSelect<true>;
+    filmkvelder: FilmkvelderSelect<false> | FilmkvelderSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -334,6 +336,53 @@ export interface Skribenter {
     };
     [k: string]: unknown;
   } | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Her kan du legge til kommende arrangementer, endre og slette de.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "filmkvelder".
+ */
+export interface Filmkvelder {
+  id: number;
+  eventName: string;
+  eventInfo: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  eventImage?: (number | null) | Media;
+  eventTime: string;
+  eventDate: string;
+  eventAddress: string;
+  participents?:
+    | {
+        participantInfo?: {
+          participantName?: string | null;
+          participantEmail?: string | null;
+          participantAge?: number | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  eventCreatedBy: number | User;
   updatedAt: string;
   createdAt: string;
 }
@@ -384,6 +433,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'skribenter';
         value: number | Skribenter;
+      } | null)
+    | ({
+        relationTo: 'filmkvelder';
+        value: number | Filmkvelder;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -529,6 +582,35 @@ export interface SkribenterSelect<T extends boolean = true> {
   writerName?: T;
   aboutWriter?: T;
   showsWritten?: T;
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "filmkvelder_select".
+ */
+export interface FilmkvelderSelect<T extends boolean = true> {
+  eventName?: T;
+  eventInfo?: T;
+  eventImage?: T;
+  eventTime?: T;
+  eventDate?: T;
+  eventAddress?: T;
+  participents?:
+    | T
+    | {
+        participantInfo?:
+          | T
+          | {
+              participantName?: T;
+              participantEmail?: T;
+              participantAge?: T;
+            };
+        id?: T;
+      };
+  eventCreatedBy?: T;
   updatedAt?: T;
   createdAt?: T;
 }

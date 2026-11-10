@@ -1,4 +1,4 @@
-import { CollectionConfig } from "payload";
+import { CollectionConfig, slugField } from "payload";
 
 export const Writers: CollectionConfig = {
   slug: "skribenter",
@@ -25,5 +25,6 @@ export const Writers: CollectionConfig = {
       type: "richText",
       required: false,
     },
+    slugField({ useAsSlug: "writerName" }),
   ],
 };
