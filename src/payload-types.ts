@@ -70,6 +70,9 @@ export interface Config {
     users: User;
     media: Media;
     artikler: Artikler;
+    anmeldelser: Anmeldelser;
+    regissorer: Regissorer;
+    skribenter: Skribenter;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -80,6 +83,9 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     artikler: ArtiklerSelect<false> | ArtiklerSelect<true>;
+    anmeldelser: AnmeldelserSelect<false> | AnmeldelserSelect<true>;
+    regissorer: RegissorerSelect<false> | RegissorerSelect<true>;
+    skribenter: SkribenterSelect<false> | SkribenterSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -200,6 +206,138 @@ export interface Artikler {
   createdAt: string;
 }
 /**
+ * Her kan du legge til, endre og slette anmeldelser.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "anmeldelser".
+ */
+export interface Anmeldelser {
+  id: number;
+  title: string;
+  quickFacts: {
+    score: number;
+    director: (number | Regissorer)[];
+    writer: (number | Skribenter)[];
+    filmLength: string;
+    age: number;
+    leadingRoles: string;
+  };
+  quote: string;
+  mainImage?: (number | null) | Media;
+  mainText: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  writtenBy: number | User;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Her kan du legge til, endre og slette regissører.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "regissorer".
+ */
+export interface Regissorer {
+  id: number;
+  directorName: string;
+  aboutDirector?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  directedMovies?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Her kan du legge til, endre og slette skribenter
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skribenter".
+ */
+export interface Skribenter {
+  id: number;
+  writerName: string;
+  aboutWriter?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  showsWritten?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
@@ -234,6 +372,18 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'artikler';
         value: number | Artikler;
+      } | null)
+    | ({
+        relationTo: 'anmeldelser';
+        value: number | Anmeldelser;
+      } | null)
+    | ({
+        relationTo: 'regissorer';
+        value: number | Regissorer;
+      } | null)
+    | ({
+        relationTo: 'skribenter';
+        value: number | Skribenter;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -330,6 +480,55 @@ export interface ArtiklerSelect<T extends boolean = true> {
   createdBy?: T;
   generateSlug?: T;
   slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "anmeldelser_select".
+ */
+export interface AnmeldelserSelect<T extends boolean = true> {
+  title?: T;
+  quickFacts?:
+    | T
+    | {
+        score?: T;
+        director?: T;
+        writer?: T;
+        filmLength?: T;
+        age?: T;
+        leadingRoles?: T;
+      };
+  quote?: T;
+  mainImage?: T;
+  mainText?: T;
+  writtenBy?: T;
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "regissorer_select".
+ */
+export interface RegissorerSelect<T extends boolean = true> {
+  directorName?: T;
+  aboutDirector?: T;
+  directedMovies?: T;
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "skribenter_select".
+ */
+export interface SkribenterSelect<T extends boolean = true> {
+  writerName?: T;
+  aboutWriter?: T;
+  showsWritten?: T;
   updatedAt?: T;
   createdAt?: T;
 }

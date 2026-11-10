@@ -2,7 +2,7 @@ import { CollectionConfig, slugField } from "payload";
 
 export const Articles: CollectionConfig = {
   slug: "artikler",
-
+  labels: { singular: "Artikkel", plural: "Artikler" },
   admin: {
     useAsTitle: "title",
     description: "Her kan du legge til, endre og slette artikler",
