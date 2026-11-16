@@ -1,4 +1,6 @@
 import { C2ABlock } from "@/Blocks/C2ABlock";
+import { ReviewsReelBlock } from "@/Blocks/ReviewsReel";
+
 import { GlobalConfig } from "payload";
 
 export const LandingPage: GlobalConfig = {
@@ -9,7 +11,7 @@ export const LandingPage: GlobalConfig = {
       name: "layout",
       label: "Bannere",
       type: "blocks",
-      blocks: [C2ABlock],
+      blocks: [C2ABlock, ReviewsReelBlock],
     },
   ],
 };
