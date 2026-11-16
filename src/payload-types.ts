@@ -65,7 +65,9 @@ export interface Config {
   auth: {
     users: UserAuthOperations;
   };
-  blocks: {};
+  blocks: {
+    'call-to-action-block': CallToActionBlock;
+  };
   collections: {
     users: User;
     media: Media;
@@ -97,8 +99,12 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'landing-page': LandingPage;
+  };
+  globalsSelect: {
+    'landing-page': LandingPageSelect<false> | LandingPageSelect<true>;
+  };
   locale: null;
   widgets: {
     collections: CollectionsWidget;
@@ -129,6 +135,104 @@ export interface UserAuthOperations {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CallToActionBlock".
+ */
+export interface CallToActionBlock {
+  title?: string | null;
+  image?: (number | null) | Media;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  eventLink?: (number | null) | Filmkvelder;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'call-to-action-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  alt: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * Her kan du legge til kommende arrangementer, endre og slette de.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "filmkvelder".
+ */
+export interface Filmkvelder {
+  id: number;
+  eventName: string;
+  eventInfo: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  eventImage?: (number | null) | Media;
+  eventTime: string;
+  eventDate: string;
+  eventAddress: string;
+  participents?:
+    | {
+        participantInfo?: {
+          participantName?: string | null;
+          participantEmail?: string | null;
+          participantAge?: number | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  eventCreatedBy: number | User;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
@@ -152,25 +256,6 @@ export interface User {
     | null;
   password?: string | null;
   collection: 'users';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: number;
-  alt: string;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
 }
 /**
  * Her kan du legge til, endre og slette artikler
@@ -341,48 +426,6 @@ export interface Skribenter {
    */
   generateSlug?: boolean | null;
   slug: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * Her kan du legge til kommende arrangementer, endre og slette de.
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "filmkvelder".
- */
-export interface Filmkvelder {
-  id: number;
-  eventName: string;
-  eventInfo: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  eventImage?: (number | null) | Media;
-  eventTime: string;
-  eventDate: string;
-  eventAddress: string;
-  participents?:
-    | {
-        participantInfo?: {
-          participantName?: string | null;
-          participantEmail?: string | null;
-          participantAge?: number | null;
-        };
-        id?: string | null;
-      }[]
-    | null;
-  eventCreatedBy: number | User;
   updatedAt: string;
   createdAt: string;
 }
@@ -611,6 +654,8 @@ export interface FilmkvelderSelect<T extends boolean = true> {
         id?: T;
       };
   eventCreatedBy?: T;
+  generateSlug?: T;
+  slug?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -653,6 +698,44 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "landing-page".
+ */
+export interface LandingPage {
+  id: number;
+  layout?: CallToActionBlock[] | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "landing-page_select".
+ */
+export interface LandingPageSelect<T extends boolean = true> {
+  layout?:
+    | T
+    | {
+        'call-to-action-block'?: T | CallToActionBlockSelect<T>;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CallToActionBlock_select".
+ */
+export interface CallToActionBlockSelect<T extends boolean = true> {
+  title?: T;
+  image?: T;
+  text?: T;
+  eventLink?: T;
+  generateSlug?: T;
+  slug?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
