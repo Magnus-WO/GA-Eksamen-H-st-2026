@@ -1,7 +1,7 @@
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
-import { Block, buildConfig, CollectionConfig } from "payload";
+import { Block, buildConfig, CollectionConfig, GlobalConfig } from "payload";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
 import { migrations } from "./migrations";
@@ -13,6 +13,8 @@ import { Reviews } from "./collections/Reviews";
 import { Directors } from "./collections/Directors";
 import { Writers } from "./collections/Writers";
 import { Events } from "./collections/Events";
+import { C2ABlock } from "./Blocks/C2ABlock";
+import { LandingPage } from "./Globals/LandingPage";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -36,7 +38,9 @@ const collections: CollectionConfig[] = [
  * Blokker
  * Legg blokker inn i dette arrayet for å inkludere dem.
  */
-const blocks: Block[] = [];
+const blocks: Block[] = [C2ABlock];
+
+const globals: GlobalConfig[] = [LandingPage];
 
 /**
  * Payload-konfigurasjon
@@ -53,6 +57,7 @@ export default buildConfig({
   },
   blocks,
   collections,
+  globals,
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
