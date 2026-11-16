@@ -14,7 +14,9 @@ import { Directors } from "./collections/Directors";
 import { Writers } from "./collections/Writers";
 import { Events } from "./collections/Events";
 import { C2ABlock } from "./Blocks/C2ABlock";
+
 import { LandingPage } from "./Globals/LandingPage";
+import { ReviewsReelBlock } from "./Blocks/ReviewsReel";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -38,7 +40,7 @@ const collections: CollectionConfig[] = [
  * Blokker
  * Legg blokker inn i dette arrayet for å inkludere dem.
  */
-const blocks: Block[] = [C2ABlock];
+const blocks: Block[] = [C2ABlock, ReviewsReelBlock];
 
 const globals: GlobalConfig[] = [LandingPage];
 

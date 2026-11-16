@@ -67,6 +67,7 @@ export interface Config {
   };
   blocks: {
     'call-to-action-block': CallToActionBlock;
+    'anmeldelser-reel': ReviewsReelBlock;
   };
   collections: {
     users: User;
@@ -258,39 +259,20 @@ export interface User {
   collection: 'users';
 }
 /**
- * Her kan du legge til, endre og slette artikler
- *
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "artikler".
+ * via the `definition` "ReviewsReelBlock".
  */
-export interface Artikler {
-  id: number;
-  title: string;
-  subtitle?: string | null;
-  mainImage: number | Media;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  createdBy: number | User;
+export interface ReviewsReelBlock {
+  heading: string;
+  reviews?: (number | Anmeldelser)[] | null;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */
   generateSlug?: boolean | null;
   slug: string;
-  updatedAt: string;
-  createdAt: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'anmeldelser-reel';
 }
 /**
  * Her kan du legge til, endre og slette anmeldelser.
@@ -421,6 +403,41 @@ export interface Skribenter {
     };
     [k: string]: unknown;
   } | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Her kan du legge til, endre og slette artikler
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "artikler".
+ */
+export interface Artikler {
+  id: number;
+  title: string;
+  subtitle?: string | null;
+  mainImage: number | Media;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  createdBy: number | User;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */
@@ -705,7 +722,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface LandingPage {
   id: number;
-  layout?: CallToActionBlock[] | null;
+  layout?: (CallToActionBlock | ReviewsReelBlock)[] | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -718,6 +735,7 @@ export interface LandingPageSelect<T extends boolean = true> {
     | T
     | {
         'call-to-action-block'?: T | CallToActionBlockSelect<T>;
+        'anmeldelser-reel'?: T | ReviewsReelBlockSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -732,6 +750,18 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
   image?: T;
   text?: T;
   eventLink?: T;
+  generateSlug?: T;
+  slug?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ReviewsReelBlock_select".
+ */
+export interface ReviewsReelBlockSelect<T extends boolean = true> {
+  heading?: T;
+  reviews?: T;
   generateSlug?: T;
   slug?: T;
   id?: T;
