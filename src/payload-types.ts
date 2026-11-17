@@ -68,6 +68,7 @@ export interface Config {
   blocks: {
     'call-to-action-block': CallToActionBlock;
     'anmeldelser-reel': ReviewsReelBlock;
+    'artikler-reel': ArtiklerReel;
   };
   collections: {
     users: User;
@@ -412,6 +413,22 @@ export interface Skribenter {
   createdAt: string;
 }
 /**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "artikler-reel".
+ */
+export interface ArtiklerReel {
+  heading: string;
+  articles?: (number | Artikler)[] | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'artikler-reel';
+}
+/**
  * Her kan du legge til, endre og slette artikler
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -722,7 +739,24 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface LandingPage {
   id: number;
-  layout?: (CallToActionBlock | ReviewsReelBlock)[] | null;
+  layout?:
+    | (
+        | CallToActionBlock
+        | ReviewsReelBlock
+        | {
+            heading: string;
+            articles?: (number | Artikler)[] | null;
+            /**
+             * When enabled, the slug will auto-generate from the title field on save and autosave.
+             */
+            generateSlug?: boolean | null;
+            slug: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'artikler-reel';
+          }
+      )[]
+    | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -736,6 +770,16 @@ export interface LandingPageSelect<T extends boolean = true> {
     | {
         'call-to-action-block'?: T | CallToActionBlockSelect<T>;
         'anmeldelser-reel'?: T | ReviewsReelBlockSelect<T>;
+        'artikler-reel'?:
+          | T
+          | {
+              heading?: T;
+              articles?: T;
+              generateSlug?: T;
+              slug?: T;
+              id?: T;
+              blockName?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;

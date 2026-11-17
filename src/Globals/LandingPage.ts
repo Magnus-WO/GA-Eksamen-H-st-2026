@@ -1,3 +1,4 @@
+import { ArticlesReelBlock } from "@/Blocks/ArticlesReel";
 import { C2ABlock } from "@/Blocks/C2ABlock";
 import { ReviewsReelBlock } from "@/Blocks/ReviewsReel";
 
@@ -11,7 +12,7 @@ export const LandingPage: GlobalConfig = {
       name: "layout",
       label: "Bannere",
       type: "blocks",
-      blocks: [C2ABlock, ReviewsReelBlock],
+      blocks: [C2ABlock, ReviewsReelBlock, ArticlesReelBlock],
     },
   ],
 };
