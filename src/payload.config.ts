@@ -18,6 +18,7 @@ import { C2ABlock } from "./Blocks/C2ABlock";
 import { LandingPage } from "./Globals/LandingPage";
 import { ReviewsReelBlock } from "./Blocks/ReviewsReel";
 import { ArticlesReelBlock } from "./Blocks/ArticlesReel";
+import { EventsBlock } from "./Blocks/EventsBlock";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -41,7 +42,12 @@ const collections: CollectionConfig[] = [
  * Blokker
  * Legg blokker inn i dette arrayet for å inkludere dem.
  */
-const blocks: Block[] = [C2ABlock, ReviewsReelBlock, ArticlesReelBlock];
+const blocks: Block[] = [
+  C2ABlock,
+  ReviewsReelBlock,
+  ArticlesReelBlock,
+  EventsBlock,
+];
 
 const globals: GlobalConfig[] = [LandingPage];
 
