@@ -1,4 +1,4 @@
-@layer reset, tokens, base, layout, components;
+@layer reset, tokens, base, layout, components, utility;
 
 @import "reset.css" layer(reset);
 
@@ -9,3 +9,7 @@
 @import "../CSS/base.css" layer(base);
 
 @import "../CSS/layout/container.css" layer(container);
+
+@import "../CSS/Components/Header.css" layer(components);
+
+@import "../CSS/utility/borders.css" layer(utility);
