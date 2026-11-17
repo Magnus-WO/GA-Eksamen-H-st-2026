@@ -1,0 +1,31 @@
+.Header {
+  background-color: var(--section-bg-color-red);
+  color: var(--text-color-heading-bright);
+
+  .header-top {
+    margin: var(--space-xs);
+    padding: var(--space-xs);
+    border-top: var(--border-dotted-yellow);
+    border-bottom: var(--border-dotted-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    p {
+      font-style: italic;
+    }
+  }
+
+  .navbar {
+    background-color: var(--navbar-bg-color);
+    padding: var(--space-xs);
+    ul {
+      display: flex;
+
+      justify-content: space-around;
+    }
+
+    a {
+      color: var(--text-color-heading-bright);
+    }
+  }
+}

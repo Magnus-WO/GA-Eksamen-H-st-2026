@@ -2,13 +2,12 @@
   /* Hentet fra link: */
   /* @link https://utopia.fyi/space/calculator?c=360,40,1.2,1140,88,1.25,0,6,&s=0.75|0.5|0.25,1.5|2|3|4,s-l&g=s,l,xl,12 */
 
-  --space-3xs: clamp(0.625rem, 0.2788rem + 1.5385vw, 1.375rem);
-  --space-2xs: clamp(1.25rem, 0.5577rem + 3.0769vw, 2.75rem);
-  --space-xs: clamp(1.875rem, 0.8365rem + 4.6154vw, 4.125rem);
-  --space-s: clamp(2.5rem, 1.1154rem + 6.1538vw, 5.5rem);
-
-  --space-m: clamp(3.75rem, 1.6731rem + 9.2308vw, 8.25rem);
-  --space-l: clamp(5rem, 2.2308rem + 12.3077vw, 11rem);
-  --space-xl: clamp(7.5rem, 3.3462rem + 18.4615vw, 16.5rem);
-  --space-2xl: clamp(10rem, 4.4615rem + 24.6154vw, 22rem);
+  --space-2xs: clamp(0.5rem, 0.4489rem + 0.2273vw, 0.625rem);
+  --space-xs: clamp(0.75rem, 0.6733rem + 0.3409vw, 0.9375rem);
+  --space-s: clamp(1rem, 0.8977rem + 0.4545vw, 1.25rem);
+  --space-m: clamp(1.5rem, 1.3466rem + 0.6818vw, 1.875rem);
+  --space-l: clamp(2rem, 1.7955rem + 0.9091vw, 2.5rem);
+  --space-xl: clamp(3rem, 2.6932rem + 1.3636vw, 3.75rem);
+  --space-2xl: clamp(4rem, 3.5909rem + 1.8182vw, 5rem);
+  --space-3xl: clamp(6rem, 5.3864rem + 2.7273vw, 7.5rem);
 }

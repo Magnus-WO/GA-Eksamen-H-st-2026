@@ -1,0 +1,4 @@
+:root {
+  --border-dotted-yellow: 4px dotted var(--border-color-yellow);
+  --border-thin: 1px solid var(--border-color-red);
+}
