@@ -69,6 +69,7 @@ export interface Config {
     'call-to-action-block': CallToActionBlock;
     'anmeldelser-reel': ReviewsReelBlock;
     'artikler-reel': ArtiklerReel;
+    'filmkvelder-blokk': FilmkvelderBlokk;
   };
   collections: {
     users: User;
@@ -465,6 +466,37 @@ export interface Artikler {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "filmkvelder-blokk".
+ */
+export interface FilmkvelderBlokk {
+  heading: string;
+  eventsInformation?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  events?: (number | Filmkvelder)[] | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'filmkvelder-blokk';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -755,6 +787,33 @@ export interface LandingPage {
             blockName?: string | null;
             blockType: 'artikler-reel';
           }
+        | {
+            heading: string;
+            eventsInformation?: {
+              root: {
+                type: string;
+                children: {
+                  type: any;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            events?: (number | Filmkvelder)[] | null;
+            /**
+             * When enabled, the slug will auto-generate from the title field on save and autosave.
+             */
+            generateSlug?: boolean | null;
+            slug: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'filmkvelder-blokk';
+          }
       )[]
     | null;
   updatedAt?: string | null;
@@ -775,6 +834,17 @@ export interface LandingPageSelect<T extends boolean = true> {
           | {
               heading?: T;
               articles?: T;
+              generateSlug?: T;
+              slug?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'filmkvelder-blokk'?:
+          | T
+          | {
+              heading?: T;
+              eventsInformation?: T;
+              events?: T;
               generateSlug?: T;
               slug?: T;
               id?: T;
