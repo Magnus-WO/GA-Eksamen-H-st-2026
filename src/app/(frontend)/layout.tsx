@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css";
+import "../CSS/index.css";
 
 export const metadata = {
   description: "Et starterprosjekt for Payload CMS, bygget med Docker",
@@ -11,9 +11,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="no">
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
-};
+}
