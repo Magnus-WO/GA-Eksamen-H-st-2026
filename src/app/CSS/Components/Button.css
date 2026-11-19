@@ -4,6 +4,7 @@
   padding: var(--space-xs) var(--space-l);
   width: fit-content;
   box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-s);
 }
 .Button:hover {
   transform: translateY(-2px);
@@ -15,4 +16,42 @@
 .Button:active {
   transform: translateY(-4px);
   box-shadow: var(--box-shadow-active);
+}
+
+.SecondaryBtn {
+  color: var(--section-bg-color-red);
+  background-color: transparent;
+  border-color: var(--section-bg-color-red);
+  box-shadow: none;
+  border-radius: var(--border-radius-s);
+}
+
+.SecondaryBtn:hover {
+  color: var(--text-color-heading-bright);
+  background-color: var(--section-bg-color-red);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.SecondaryBtn:active {
+  box-shadow: var(--box-shadow-active);
+}
+
+/* Tertiary: text only */
+.TertiaryBtn {
+  color: var(--section-bg-color-red);
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.TertiaryBtn:hover {
+  transform: none;
+  box-shadow: none;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.TertiaryBtn:active {
+  transform: none;
+  box-shadow: none;
+  opacity: 0.7;
 }

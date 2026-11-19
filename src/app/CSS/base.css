@@ -6,7 +6,8 @@
   font-family: var(--body-font-family);
   font-size: var(--root-font-size);
   line-height: var(--root-line-height);
-  scrollbar-color: var(--text-color-body), transparent;
+  scrollbar-color: var(--border-color-red) transparent;
+  scrollbar-width: thin;
 }
 html {
   /* display: grid; */
@@ -23,7 +24,9 @@ body {
 main {
   flex: 1;
 }
-
+footer {
+  height: 30vh;
+}
 h1 {
   font-family: var(--logo-font-family);
   font-size: var(--step-5);
@@ -48,4 +51,7 @@ a {
 a:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+img {
+  border-radius: var(--border-radius-s);
 }

@@ -1,0 +1,13 @@
+.Card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-s);
+
+  padding: var(--space-s);
+
+  > * + * {
+    margin-top: var(--space-xs);
+  }
+}
