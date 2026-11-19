@@ -9,13 +9,15 @@
 
 @import "../CSS/base.css" layer(base);
 
-@import "../CSS/layout/container.css" layer(container);
+@import "../CSS/layout/container.css" layer(layout);
+@import "../CSS/layout/reel.css" layer(layout);
 
 @import "../CSS/Components/Header.css" layer(components);
 @import "../CSS/Components/C2ABanner.css" layer(components);
 @import "../CSS/Components/Button.css" layer(components);
 @import "../CSS/Components/ReviewsReel.css" layer(components);
 @import "../CSS/Components/Card.css" layer(components);
+@import "../CSS/Components/ArticlesReel.css" layer(components);
 
 @import "../CSS/utility/borders.css" layer(utility);
 @import "../CSS/utility/radius.css" layer(utility);

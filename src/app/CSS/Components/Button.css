@@ -38,7 +38,7 @@
 
 /* Tertiary: text only */
 .TertiaryBtn {
-  color: var(--section-bg-color-red);
+  color: var(--navbar-text-color);
   background-color: transparent;
   box-shadow: none;
 }

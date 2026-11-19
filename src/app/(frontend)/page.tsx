@@ -3,6 +3,7 @@ import { getPayload } from "payload";
 
 import config from "@payload-config";
 import ReviewsReel from "../Components/ReviewsReel";
+import ArticlesReel from "../Components/ArticlesReel";
 
 export default async function HomePage() {
   const payload = await getPayload({ config });
@@ -41,6 +42,18 @@ export default async function HomePage() {
                 reviews={reviews}
                 heading={block.heading}
                 key={block.id}
+              />
+            );
+          }
+          case "artikler-reel": {
+            const articles = block.articles.filter(
+              (article) => typeof article === "object" && article !== null,
+            );
+            return (
+              <ArticlesReel
+                heading={block.heading}
+                key={block.id}
+                articles={articles}
               />
             );
           }

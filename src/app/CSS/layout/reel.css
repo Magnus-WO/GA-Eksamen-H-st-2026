@@ -1,0 +1,8 @@
+.reel {
+  margin-bottom: var(--space-m);
+
+  display: flex;
+  overflow-x: auto;
+  gap: var(--space-xl);
+  padding: var(--space-m);
+}

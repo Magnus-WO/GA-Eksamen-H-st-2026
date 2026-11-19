@@ -100,20 +100,20 @@ export const Reviews: CollectionConfig = {
     {
       name: "variation",
       type: "select",
-      defaultValue: "--blue",
-      required: true,
+      defaultValue: "--green",
+      required: false,
       options: [
         {
-          label: "Rosa",
-          value: "--pink",
+          label: "Grå",
+          value: "--grey",
         },
         {
-          label: "Gul",
-          value: "--yellow",
+          label: "Grønn",
+          value: "--green",
         },
         {
-          label: "Blå",
-          value: "--blue",
+          label: "Oransj",
+          value: "--orange",
         },
       ],
     },

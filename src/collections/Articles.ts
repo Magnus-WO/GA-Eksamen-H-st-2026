@@ -40,6 +40,26 @@ export const Articles: CollectionConfig = {
       relationTo: "users",
       required: true,
     },
+    {
+      name: "variation",
+      type: "select",
+      defaultValue: "--green",
+      required: false,
+      options: [
+        {
+          label: "Grå",
+          value: "--grey",
+        },
+        {
+          label: "Grønn",
+          value: "--green",
+        },
+        {
+          label: "Oransj",
+          value: "--orange",
+        },
+      ],
+    },
     slugField(),
   ],
 };

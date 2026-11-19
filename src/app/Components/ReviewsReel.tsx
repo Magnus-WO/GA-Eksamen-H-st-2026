@@ -14,10 +14,10 @@ export default function ReviewsReel({ reviews, heading }: ReviewsReelProps) {
         <h2>{heading}</h2>
         {typeof reviews !== "number" && (
           //
-          <div className="reviewsReel">
+          <div className="reel">
             {reviews.map((review: Anmeldelser) => (
               <article
-                className={`Card review review${review.variation}`}
+                className={`Card Card${review.variation}`}
                 key={review.id}
               >
                 {typeof review.mainImage === "object" &&

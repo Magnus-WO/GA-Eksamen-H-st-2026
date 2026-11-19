@@ -1,42 +1,41 @@
 :root {
-  --body-background-color: #0a0a0a;
-  --site-background-color: #e1b359;
+  --site-background-color: #141312;
 
-  --section-bg-color-yellow: #e1b359;
-  --section-bg-color-red: #702a2a;
-  --section-bg-color-red-light: #a24332;
-  --section-bg-color-teal: #acc5af;
-  --section-bg-color-pink: #e9b19b;
+  --section-bg-color-orange: #b8530f;
+  --section-bg-color-red: #260808;
+  --section-bg-color-red-light: #6e150f;
+  --section-bg-color-green: #262b29;
+  --section-bg-color-gun-grey: #3d3835;
 
-  --card-bg-color-yellow: #e5c674;
-  --card-bg-color-pink: #e9b19b;
-  --card-bg-color-teal: #acc5af;
+  --card-bg-color-orange: #7b3a0f;
+  --card-bg-color-grey: #332e2b;
+  --card-bg-color-green: #303634;
 
-  --site-heading-color: #f9e7ba;
-  --header-body-text-color: #e1b359;
+  --site-heading-color: #e9e2d0;
+  --header-body-text-color: #e8731f;
 
-  --navbar-bg-color: #285a56;
-  --navbar-text-color: #f9e7ba;
-  --navbar-text-active: #e1b359;
+  --navbar-bg-color: #3d3835;
+  --navbar-text-color: #c9c3b6;
+  --navbar-text-active: #f0701a;
 
-  --text-color-heading-dark: #702a2a;
-  --text-color-heading-bright: #f6efdf;
-  --text-color-body: #242322;
-  --text-color-card: #332824;
+  --text-color-heading-dark: #c22828;
+  --text-color-heading-bright: #ece5d3;
+  --text-color-body: #d3cdc0;
+  --text-color-card: #e0d9cb;
 
-  --primary-btn-bg-color: #8f2927;
+  --primary-btn-bg-color: #a3220f;
   --primary-btn-text-colo: var(--text-color-heading-bright);
 
-  --border-color-yellow: #d7b779;
-  --border-color-red: #702a2a;
+  --border-color-yellow: #7a3510;
+  --border-color-red: #3d0e0e;
 
   --box-shadow:
-    0 0 0 3px #2a0d0d, 0 6px 0 3px #451818, 0 10px 14px rgba(60, 30, 0, 0.45),
-    0 0 0 6px rgba(112, 42, 42, 0);
+    0 0 0 3px #000, 0 6px 0 3px #120303, 0 10px 14px rgba(0, 0, 0, 0.7),
+    0 0 0 6px rgba(232, 100, 20, 0);
   --box-shadow-hover:
-    0 0 0 3px #2a0d0d, 0 8px 0 3px #451818, 0 16px 22px rgba(60, 30, 0, 0.6),
-    0 0 0 7px rgba(112, 42, 42, 0.55);
+    0 0 0 3px #000, 0 8px 0 3px #120303, 0 16px 24px rgba(0, 0, 0, 0.85),
+    0 0 0 7px rgba(232, 100, 20, 0.5);
   --box-shadow-active:
-    0 0 0 3px #2a0d0d, 0 1px 0 3px #451818, 0 3px 6px rgba(60, 30, 0, 0.6),
-    0 0 0 6px rgba(112, 42, 42, 0);
+    0 0 0 3px #000, 0 1px 0 3px #120303, 0 3px 6px rgba(0, 0, 0, 0.8),
+    0 0 0 6px rgba(232, 100, 20, 0);
 }
