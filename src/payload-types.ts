@@ -141,24 +141,10 @@ export interface UserAuthOperations {
  * via the `definition` "CallToActionBlock".
  */
 export interface CallToActionBlock {
-  title?: string | null;
-  image?: (number | null) | Media;
-  text?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  eventLink?: (number | null) | Filmkvelder;
+  title: string;
+  image: number | Media;
+  text: string;
+  eventLink: number | Filmkvelder;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */

@@ -7,6 +7,7 @@
   --logo-font-family: var(--oswald-font);
   --heading-font-family: var(--bodoni-font);
   --body-font-family: var(--inter-font);
+  --cursive-font-family: var(--patrickHand-font);
 
   --font-weight-normal: 400;
   --font-weight-bold: 600;
@@ -14,17 +15,10 @@
 
   --root-font-size: 16px;
   --root-line-height: 1.5;
+  --line-height-l: 2;
 
   /* Hentet fra link: */
   /* @link https://utopia.fyi/type/calculator?c=360,40,1.2,1140,88,1.25,0,6,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-  /* --font-size-h1: clamp(2.5rem, 1.1154rem + 6.1538vw, 5.5rem);
-  --font-size-h2: clamp(2.0833rem, 1.0141rem + 4.7521vw, 4.4rem);
-  --font-size-h3: clamp(1.7361rem, 0.9128rem + 3.6593vw, 3.52rem);
-
-  --font-size-nav: clamp(1.4468rem, 0.8148rem + 2.8087vw, 2.816rem);
-  --font-size-body-m: clamp(1.2056rem, 0.7223rem + 2.148vw, 2.2528rem);
-  --font-size-body-sm: clamp(1.0047rem, 0.6366rem + 1.636vw, 1.8022rem);
-  --font-size-body-xs: clamp(0.8372rem, 0.5582rem + 1.2401vw, 1.4418rem); */
 
   --step--2: clamp(0.6944rem, 0.6513rem + 0.1919vw, 0.8rem);
   --step--1: clamp(0.8333rem, 0.7652rem + 0.303vw, 1rem);

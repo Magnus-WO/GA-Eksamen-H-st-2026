@@ -5,11 +5,14 @@
 @import "../CSS/tokens/colors.css" layer(tokens);
 @import "../CSS/tokens/typography.css" layer(tokens);
 @import "../CSS/tokens/spacing.css" layer(tokens);
+@import "../CSS/tokens/animations.css" layer(tokens);
 
 @import "../CSS/base.css" layer(base);
 
 @import "../CSS/layout/container.css" layer(container);
 
 @import "../CSS/Components/Header.css" layer(components);
+@import "../CSS/Components/C2ABanner.css" layer(components);
+@import "../CSS/Components/Button.css" layer(components);
 
 @import "../CSS/utility/borders.css" layer(utility);
