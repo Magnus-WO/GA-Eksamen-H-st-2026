@@ -298,7 +298,7 @@ export interface Anmeldelser {
     [k: string]: unknown;
   };
   writtenBy: number | User;
-  variation: '--pink' | '--yellow' | '--blue';
+  variation?: ('--grey' | '--green' | '--orange') | null;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */
@@ -445,6 +445,7 @@ export interface Artikler {
     [k: string]: unknown;
   };
   createdBy: number | User;
+  variation?: ('--grey' | '--green' | '--orange') | null;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */
@@ -629,6 +630,7 @@ export interface ArtiklerSelect<T extends boolean = true> {
   mainImage?: T;
   content?: T;
   createdBy?: T;
+  variation?: T;
   generateSlug?: T;
   slug?: T;
   updatedAt?: T;
