@@ -252,7 +252,8 @@ export interface User {
  */
 export interface ReviewsReelBlock {
   heading: string;
-  reviews?: (number | Anmeldelser)[] | null;
+  reviews: (number | Anmeldelser)[];
+  variation?: ('--pink' | '--yellow' | '--blue') | null;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */
@@ -297,6 +298,7 @@ export interface Anmeldelser {
     [k: string]: unknown;
   };
   writtenBy: number | User;
+  variation: '--pink' | '--yellow' | '--blue';
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */
@@ -405,7 +407,8 @@ export interface Skribenter {
  */
 export interface ArtiklerReel {
   heading: string;
-  articles?: (number | Artikler)[] | null;
+  articles: (number | Artikler)[];
+  variation?: ('--pink' | '--yellow' | '--blue') | null;
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */
@@ -651,6 +654,7 @@ export interface AnmeldelserSelect<T extends boolean = true> {
   mainImage?: T;
   mainText?: T;
   writtenBy?: T;
+  variation?: T;
   generateSlug?: T;
   slug?: T;
   updatedAt?: T;
@@ -763,7 +767,8 @@ export interface LandingPage {
         | ReviewsReelBlock
         | {
             heading: string;
-            articles?: (number | Artikler)[] | null;
+            articles: (number | Artikler)[];
+            variation?: ('--pink' | '--yellow' | '--blue') | null;
             /**
              * When enabled, the slug will auto-generate from the title field on save and autosave.
              */
@@ -820,6 +825,7 @@ export interface LandingPageSelect<T extends boolean = true> {
           | {
               heading?: T;
               articles?: T;
+              variation?: T;
               generateSlug?: T;
               slug?: T;
               id?: T;
@@ -862,6 +868,7 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
 export interface ReviewsReelBlockSelect<T extends boolean = true> {
   heading?: T;
   reviews?: T;
+  variation?: T;
   generateSlug?: T;
   slug?: T;
   id?: T;

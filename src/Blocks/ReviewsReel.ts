@@ -16,6 +16,27 @@ export const ReviewsReelBlock: Block = {
       type: "relationship",
       relationTo: "anmeldelser",
       hasMany: true,
+      minRows: 1,
+      required: true,
+    },
+    {
+      name: "variation",
+      type: "select",
+      defaultValue: "--blue",
+      options: [
+        {
+          label: "Rosa",
+          value: "--pink",
+        },
+        {
+          label: "Gul",
+          value: "--yellow",
+        },
+        {
+          label: "Blå",
+          value: "--blue",
+        },
+      ],
     },
     slugField({ useAsSlug: "heading" }),
   ],

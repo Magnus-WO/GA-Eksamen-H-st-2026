@@ -1,10 +1,8 @@
 import C2ABanner from "../Components/C2ABanner";
-import testImage from "../../../public/images/starySky.jpg";
 import { getPayload } from "payload";
 
 import config from "@payload-config";
-import { log } from "console";
-import { CallToActionBlock } from "@/payload-types";
+import ReviewsReel from "../Components/ReviewsReel";
 
 export default async function HomePage() {
   const payload = await getPayload({ config });
@@ -12,8 +10,6 @@ export default async function HomePage() {
     slug: "landing-page",
     depth: 2,
   });
-
-  log(page);
 
   if (!page || !page.layout) {
     throw new Error("Kunne ikke hente siden");
@@ -34,6 +30,18 @@ export default async function HomePage() {
                 event={block.eventLink}
                 image={block.image}
               ></C2ABanner>
+            );
+          }
+          case "anmeldelser-reel": {
+            const reviews = block.reviews.filter(
+              (review) => typeof review === "object" && review !== null,
+            );
+            return (
+              <ReviewsReel
+                reviews={reviews}
+                heading={block.heading}
+                key={block.id}
+              />
             );
           }
         }

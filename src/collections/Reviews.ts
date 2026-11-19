@@ -97,6 +97,26 @@ export const Reviews: CollectionConfig = {
       relationTo: "users",
       required: true,
     },
+    {
+      name: "variation",
+      type: "select",
+      defaultValue: "--blue",
+      required: true,
+      options: [
+        {
+          label: "Rosa",
+          value: "--pink",
+        },
+        {
+          label: "Gul",
+          value: "--yellow",
+        },
+        {
+          label: "Blå",
+          value: "--blue",
+        },
+      ],
+    },
     slugField({ useAsSlug: "title" }),
   ],
 };
