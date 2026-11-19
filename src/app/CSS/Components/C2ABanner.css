@@ -1,0 +1,36 @@
+.C2ABanner-container {
+  min-height: 30vh;
+  border-bottom: var(--border-thin);
+  padding: var(--space-xl) 0;
+  margin-block-start: var(--space-2xl);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.C2ABanner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-xl);
+
+  div {
+    width: 50%;
+    height: 100%;
+    color: var(--text-color-body);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    p {
+      line-height: var(--line-height-l);
+      font-family: var(--body-font-family);
+    }
+  }
+  .C2AImage {
+    aspect-ratio: auto;
+    height: 100%;
+
+    box-shadow: var(--box-shadow);
+  }
+}

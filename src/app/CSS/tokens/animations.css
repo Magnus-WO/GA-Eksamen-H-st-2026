@@ -1,0 +1,5 @@
+:root {
+  --animation-short: 100ms;
+  --animation-medium: 300ms;
+  --animation-long: 600ms;
+}

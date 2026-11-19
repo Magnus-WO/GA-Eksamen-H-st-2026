@@ -1,6 +1,8 @@
 :root {
   --body-background-color: #0a0a0a;
   --site-background-color: #e1b359;
+
+  --section-bg-color-yellow: #e1b359;
   --section-bg-color-red: #702a2a;
   --section-bg-color-red-light: #a24332;
   --section-bg-color-teal: #acc5af;
@@ -27,4 +29,14 @@
 
   --border-color-yellow: #d7b779;
   --border-color-red: #702a2a;
+
+  --box-shadow:
+    0 0 0 3px #2a0d0d, 0 6px 0 3px #451818, 0 10px 14px rgba(60, 30, 0, 0.45),
+    0 0 0 6px rgba(112, 42, 42, 0);
+  --box-shadow-hover:
+    0 0 0 3px #2a0d0d, 0 8px 0 3px #451818, 0 16px 22px rgba(60, 30, 0, 0.6),
+    0 0 0 7px rgba(112, 42, 42, 0.55);
+  --box-shadow-active:
+    0 0 0 3px #2a0d0d, 0 1px 0 3px #451818, 0 3px 6px rgba(60, 30, 0, 0.6),
+    0 0 0 6px rgba(112, 42, 42, 0);
 }

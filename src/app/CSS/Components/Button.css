@@ -1,0 +1,18 @@
+.Button {
+  color: var(--text-color-heading-bright);
+  background-color: var(--section-bg-color-red);
+  padding: var(--space-xs) var(--space-l);
+  width: fit-content;
+  box-shadow: var(--box-shadow);
+}
+.Button:hover {
+  transform: translateY(-2px);
+  transition: all var(--animation-short) ease-in;
+  cursor: pointer;
+  box-shadow: var(--box-shadow-hover);
+}
+
+.Button:active {
+  transform: translateY(-4px);
+  box-shadow: var(--box-shadow-active);
+}
