@@ -1,0 +1,26 @@
+.eventsBlock-bg {
+  background-color: var(--section-bg-color-green);
+}
+.eventsBlock {
+  display: flex;
+  gap: var(--space-xl);
+  margin-block-start: var(--space-2xl);
+  padding: var(--space-m);
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: var(--space-2xl);
+
+    h2 {
+      color: var(--text-color-heading-bright);
+    }
+  }
+  .events {
+    > * + * {
+      margin-top: var(--space-xl);
+    }
+    height: fit-content;
+  }
+}

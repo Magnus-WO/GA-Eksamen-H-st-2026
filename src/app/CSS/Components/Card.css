@@ -1,39 +1,46 @@
 .Card {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-s);
 
-  padding: var(--space-s);
+  min-width: 300px;
   width: 30%;
+  height: 40vh;
+  backdrop-filter: blur(var(--card-blur));
 
   flex-shrink: 0;
+
+  position: relative;
   img {
     align-self: center;
-  }
-  h3 {
-    font-family: var(--heading-font-family);
-    font-size: var(--step-2);
-  }
-  .quote {
-    height: 50%;
-    overflow-y: scroll;
-    font-style: italic;
-    font-size: var(--step-0);
-  }
 
-  &.Card--gray {
-    background-color: var(--card-bg-color-grey);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    opacity: 0.3;
   }
-  &.Card--green {
-    background-color: var(--card-bg-color-green);
-  }
-  &.Card--orange {
-    background-color: var(--card-bg-color-orange);
-  }
+  .content {
+    z-index: 100;
+    height: 100%;
+    width: 100%;
 
-  > * + * {
-    margin-top: var(--space-xs);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 var(--space-s);
+
+    h3 {
+      font-family: var(--heading-font-family);
+      font-size: var(--step-2);
+    }
+    .quote {
+      height: 30%;
+      scrollbar-width: none;
+      overflow-y: auto;
+      font-style: italic;
+      font-size: var(--step-0);
+    }
   }
 }

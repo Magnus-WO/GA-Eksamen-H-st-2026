@@ -26,6 +26,14 @@ main {
 footer {
   height: 30vh;
 }
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: var(--line-height-heading);
+}
+
 h1 {
   font-family: var(--logo-font-family);
   font-size: var(--step-5);
@@ -37,6 +45,9 @@ h2 {
   font-size: var(--step-4);
   font-weight: var(--font-weight-bold);
   color: var(--text-color-heading-dark);
+}
+h3 {
+  font-family: var(--heading-font-family);
 }
 p {
   font-family: var(--body-font-family);

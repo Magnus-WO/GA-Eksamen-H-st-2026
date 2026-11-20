@@ -13,7 +13,7 @@ export const EventsBlock: Block = {
       name: "eventsInformation",
       label: "Mer informasjon",
       type: "richText",
-      required: false,
+      required: true,
     },
     {
       name: "events",
@@ -21,6 +21,7 @@ export const EventsBlock: Block = {
       type: "relationship",
       relationTo: "filmkvelder",
       hasMany: true,
+      required: true,
     },
     slugField({ useAsSlug: "heading" }),
   ],

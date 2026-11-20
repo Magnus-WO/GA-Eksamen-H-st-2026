@@ -17,7 +17,7 @@ export default function ReviewsReel({ reviews, heading }: ReviewsReelProps) {
           <div className="reel">
             {reviews.map((review: Anmeldelser) => (
               <article
-                className={`Card Card${review.variation}`}
+                className={`Card Card${review.variation} noise-texture`}
                 key={review.id}
               >
                 {typeof review.mainImage === "object" &&
@@ -29,16 +29,20 @@ export default function ReviewsReel({ reviews, heading }: ReviewsReelProps) {
                       height={300}
                     />
                   )}
-                <p className="score">Terningkast: {review.quickFacts.score}</p>
-                <h3>{review.title}</h3>
-                <p className="quote">{review.quote}</p>
-                <Link
-                  href={`#`}
-                  title={`Les ${review.title}`}
-                  className="TertiaryBtn"
-                >
-                  Les hele anmeldelsen
-                </Link>
+                <div className="content">
+                  <h3>{review.title}</h3>
+                  <p className="score">
+                    Terningkast: {review.quickFacts.score}
+                  </p>
+                  <p className="quote">{review.quote}</p>
+                  <Link
+                    href={`#`}
+                    title={`Les ${review.title}`}
+                    className="TertiaryBtn"
+                  >
+                    Les hele anmeldelsen
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
