@@ -460,7 +460,7 @@ export interface Artikler {
  */
 export interface FilmkvelderBlokk {
   heading: string;
-  eventsInformation?: {
+  eventsInformation: {
     root: {
       type: string;
       children: {
@@ -474,8 +474,8 @@ export interface FilmkvelderBlokk {
       version: number;
     };
     [k: string]: unknown;
-  } | null;
-  events?: (number | Filmkvelder)[] | null;
+  };
+  events: (number | Filmkvelder)[];
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
    */
@@ -782,7 +782,7 @@ export interface LandingPage {
           }
         | {
             heading: string;
-            eventsInformation?: {
+            eventsInformation: {
               root: {
                 type: string;
                 children: {
@@ -796,8 +796,8 @@ export interface LandingPage {
                 version: number;
               };
               [k: string]: unknown;
-            } | null;
-            events?: (number | Filmkvelder)[] | null;
+            };
+            events: (number | Filmkvelder)[];
             /**
              * When enabled, the slug will auto-generate from the title field on save and autosave.
              */

@@ -2,6 +2,11 @@
   margin-bottom: var(--space-m);
 
   display: flex;
+
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: 1;
+  width: 100%; */
   overflow-x: auto;
   gap: var(--space-xl);
   padding: var(--space-m);

@@ -15,7 +15,7 @@ export default function ArticlesReel({ articles, heading }: ArticlesReelProps) {
         <div className="reel">
           {articles.map((article) => (
             <article
-              className={`Card Card${article.variation}`}
+              className={`Card Card${article.variation} noise-texture`}
               key={article.id}
             >
               {typeof article.mainImage === "object" &&
@@ -27,15 +27,19 @@ export default function ArticlesReel({ articles, heading }: ArticlesReelProps) {
                     height={300}
                   />
                 )}
-              <h3>{article.title}</h3>
-              {article.subtitle && <p className="quote">{article.subtitle}</p>}
-              <Link
-                href={`#`}
-                title={`Les om ${article.title}`}
-                className="TertiaryBtn"
-              >
-                Les artikkelen
-              </Link>
+              <div className="content">
+                <h3>{article.title}</h3>
+                {article.subtitle && (
+                  <p className="quote">{article.subtitle}</p>
+                )}
+                <Link
+                  href={`#`}
+                  title={`Les om ${article.title}`}
+                  className="TertiaryBtn"
+                >
+                  Les artikkelen
+                </Link>
+              </div>
             </article>
           ))}
         </div>

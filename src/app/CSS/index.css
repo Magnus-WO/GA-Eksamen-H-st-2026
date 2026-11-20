@@ -18,6 +18,9 @@
 @import "../CSS/Components/ReviewsReel.css" layer(components);
 @import "../CSS/Components/Card.css" layer(components);
 @import "../CSS/Components/ArticlesReel.css" layer(components);
+@import "../CSS/Components/EventsBlock.css" layer(components);
+@import "../CSS/Components/EventCard.css" layer(components);
 
 @import "../CSS/utility/borders.css" layer(utility);
 @import "../CSS/utility/radius.css" layer(utility);
+@import "../CSS/utility/noise.css" layer(utility);

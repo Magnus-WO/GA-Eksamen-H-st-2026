@@ -1,4 +1,6 @@
 :root {
   --border-dotted-yellow: 4px dotted var(--border-color-yellow);
+  --border-solid-yellow: 4px solid var(--border-color-yellow);
   --border-thin: 1px solid var(--border-color-red);
+  --text-underline: 3px solid var(--section-bg-color-orange);
 }

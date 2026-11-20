@@ -4,6 +4,7 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import ReviewsReel from "../Components/ReviewsReel";
 import ArticlesReel from "../Components/ArticlesReel";
+import EventsBlock from "../Components/EventsBockComponent";
 
 export default async function HomePage() {
   const payload = await getPayload({ config });
@@ -56,6 +57,9 @@ export default async function HomePage() {
                 articles={articles}
               />
             );
+          }
+          case "filmkvelder-blokk": {
+            return <EventsBlock eventsBlock={block} key={block.id} />;
           }
         }
       })}

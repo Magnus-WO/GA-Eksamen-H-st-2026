@@ -1,0 +1,41 @@
+.EventCard {
+  display: flex;
+  height: 30%;
+  gap: var(--space-l);
+  width: 100%;
+  padding-bottom: var(--space-m);
+  border-bottom: var(--border-solid-yellow);
+
+  .imageContainer {
+    width: 150px;
+    height: 150px;
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+  div {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    ul {
+      text-align: left;
+      li {
+        margin-top: var(--space-s);
+        span {
+          border-bottom: var(--text-underline);
+        }
+      }
+    }
+  }
+
+  a {
+    text-wrap: nowrap;
+    height: fit-content;
+  }
+}
