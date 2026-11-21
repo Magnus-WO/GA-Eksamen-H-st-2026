@@ -3,7 +3,7 @@ import { getPayload } from "payload";
 
 import config from "@payload-config";
 import ReviewsReel from "../Components/ReviewsReel";
-import ArticlesReel from "../Components/ArticlesReel";
+import ArticlesReel from "../Components/ArticlesReelBlock";
 import EventsBlock from "../Components/EventsBockComponent";
 
 export default async function HomePage() {
