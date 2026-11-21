@@ -3,7 +3,7 @@
 }
 .ReviewsReel-container {
   margin-block-start: var(--space-2xl);
-  padding: var(--space-m);
+  padding: var(--space-2xl) var(--space-m);
 
   h2 {
     font-weight: var(--font-weight-bold);
