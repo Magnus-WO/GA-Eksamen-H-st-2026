@@ -2,6 +2,7 @@ import React from "react";
 import "../CSS/index.css";
 import SiteHeader from "../Components/Header";
 import localFont from "next/font/local";
+import Footer from "../Components/Footer";
 
 export const metadata = {
   description: "Et starterprosjekt for Payload CMS, bygget med Docker",
@@ -36,7 +37,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       <body className="noise-texture">
         <SiteHeader />
         <main>{children}</main>
-        <footer></footer>
+        <Footer></Footer>
       </body>
     </html>
   );
