@@ -5,7 +5,7 @@
   display: flex;
   gap: var(--space-xl);
   margin-block-start: var(--space-2xl);
-  padding: var(--space-m);
+  padding: var(--space-2xl) var(--space-m);
 
   .info {
     display: flex;
