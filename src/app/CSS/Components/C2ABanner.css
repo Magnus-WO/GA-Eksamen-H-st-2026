@@ -1,12 +1,11 @@
 .C2ABanner-container {
   min-height: 30vh;
   border-bottom: var(--border-thin);
-  padding: var(--space-xl) 0;
-  margin-block-start: var(--space-2xl);
 
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: var(--space-xl);
 }
 
 .C2ABanner {
@@ -22,6 +21,9 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-xl);
+    h2 {
+      margin-bottom: 0;
+    }
     p {
       line-height: var(--line-height-l);
       font-family: var(--body-font-family);

@@ -70,6 +70,7 @@ export interface Config {
     'anmeldelser-reel': ReviewsReelBlock;
     'artikler-reel': ArtiklerReel;
     'filmkvelder-blokk': FilmkvelderBlokk;
+    'new-review-block': NewReviewBlock;
   };
   collections: {
     users: User;
@@ -104,9 +105,11 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     'landing-page': LandingPage;
+    'anmeldelser-side': AnmeldelserSide;
   };
   globalsSelect: {
     'landing-page': LandingPageSelect<false> | LandingPageSelect<true>;
+    'anmeldelser-side': AnmeldelserSideSelect<false> | AnmeldelserSideSelect<true>;
   };
   locale: null;
   widgets: {
@@ -487,6 +490,19 @@ export interface FilmkvelderBlokk {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "NewReviewBlock".
+ */
+export interface NewReviewBlock {
+  title: string;
+  image: number | Media;
+  text: string;
+  review: number | Anmeldelser;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'new-review-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -814,6 +830,24 @@ export interface LandingPage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "anmeldelser-side".
+ */
+export interface AnmeldelserSide {
+  id: number;
+  title: string;
+  subtitle?: string | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
+  reviews: (number | Anmeldelser)[];
+  pageBlocks?: NewReviewBlock[] | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "landing-page_select".
  */
 export interface LandingPageSelect<T extends boolean = true> {
@@ -873,6 +907,37 @@ export interface ReviewsReelBlockSelect<T extends boolean = true> {
   variation?: T;
   generateSlug?: T;
   slug?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "anmeldelser-side_select".
+ */
+export interface AnmeldelserSideSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  generateSlug?: T;
+  slug?: T;
+  reviews?: T;
+  pageBlocks?:
+    | T
+    | {
+        'new-review-block'?: T | NewReviewBlockSelect<T>;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "NewReviewBlock_select".
+ */
+export interface NewReviewBlockSelect<T extends boolean = true> {
+  title?: T;
+  image?: T;
+  text?: T;
+  review?: T;
   id?: T;
   blockName?: T;
 }

@@ -11,6 +11,9 @@
 
 @import "../CSS/layout/container.css" layer(layout);
 @import "../CSS/layout/reel.css" layer(layout);
+@import "../CSS/layout/grid.css" layer(layout);
+@import "../CSS/layout/pageHeader.css" layer(layout);
+@import "../CSS/layout/page.css" layer(layout);
 
 @import "../CSS/Components/Header.css" layer(components);
 @import "../CSS/Components/Footer.css" layer(components);
@@ -19,6 +22,7 @@
 @import "../CSS/Components/ReviewsReel.css" layer(components);
 @import "../CSS/Components/ArticlesReel.css" layer(components);
 @import "../CSS/Components/EventsBlock.css" layer(components);
+@import "../CSS/Components/NewReviewBlock.css" layer(component);
 
 @import "../CSS/Components/Button.css" layer(components);
 @import "../CSS/Components/Card.css" layer(components);

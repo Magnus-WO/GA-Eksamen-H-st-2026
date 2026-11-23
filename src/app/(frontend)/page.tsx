@@ -20,7 +20,7 @@ export default async function HomePage() {
   const blocks = page.layout;
 
   return (
-    <>
+    <main>
       {blocks.map((block) => {
         switch (block.blockType) {
           case "call-to-action-block": {
@@ -63,6 +63,6 @@ export default async function HomePage() {
           }
         }
       })}
-    </>
+    </main>
   );
 }
