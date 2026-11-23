@@ -1,6 +1,7 @@
 import { type Anmeldelser } from "@/payload-types";
 import Image from "next/image";
 import Link from "next/link";
+import ReviewCard from "./ReviewCard";
 
 export type ReviewsReelProps = {
   reviews: Anmeldelser[];
@@ -16,34 +17,7 @@ export default function ReviewsReel({ reviews, heading }: ReviewsReelProps) {
           //
           <div className="reel">
             {reviews.map((review: Anmeldelser) => (
-              <article
-                className={`Card Card${review.variation} noise-texture`}
-                key={review.id}
-              >
-                {typeof review.mainImage === "object" &&
-                  review.mainImage?.url && (
-                    <Image
-                      src={review.mainImage.url}
-                      alt={review.mainImage.alt}
-                      width={300}
-                      height={300}
-                    />
-                  )}
-                <div className="content">
-                  <h3>{review.title}</h3>
-                  <p className="score">
-                    Terningkast: {review.quickFacts.score}
-                  </p>
-                  <p className="quote">{review.quote}</p>
-                  <Link
-                    href={`#`}
-                    title={`Les ${review.title}`}
-                    className="TertiaryBtn"
-                  >
-                    Les hele anmeldelsen
-                  </Link>
-                </div>
-              </article>
+              <ReviewCard review={review} key={review.id} />
             ))}
           </div>
         )}

@@ -1,0 +1,47 @@
+.NewReviewBlock {
+  display: flex;
+  gap: var(--space-l);
+  justify-content: space-around;
+
+  background-color: var(--card-bg-color-green);
+  padding: var(--space-l) var(--space-m);
+  border-radius: var(--border-radius-s);
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    h2 {
+      color: var(--text-color-heading-bright);
+    }
+  }
+  .reviewBlock-image {
+    height: auto;
+    width: 20%;
+  }
+}
+@media screen and (max-width: 720px) {
+  .NewReviewBlock {
+    flex-direction: column;
+
+    div {
+      gap: var(--space-l);
+    }
+    .reviewBlock-image {
+      height: 300px;
+      width: auto;
+      align-self: center;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .NewReviewBlock {
+    div {
+      h2 {
+        word-wrap: break-word;
+      }
+    }
+  }
+}

@@ -36,7 +36,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
     <html lang="no">
       <body className="noise-texture">
         <SiteHeader />
-        <main>{children}</main>
+        <>{children}</>
         <Footer></Footer>
       </body>
     </html>
