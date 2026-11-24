@@ -1,4 +1,5 @@
 import { FilmkvelderBlokk } from "@/payload-types";
+import Link from "next/link";
 
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import EventCard from "./EventCard";
@@ -15,7 +16,11 @@ export default function EventsBlock({ eventsBlock }: EventsBlockProps) {
     <div className="eventsBlock-bg">
       <section className="eventsBlock container">
         <div className="info">
-          <h2>{eventsBlock.heading}</h2>
+          <h2>
+            <Link href={`/filmkvelder`} title="Se alle filmkvelder">
+              {eventsBlock.heading}
+            </Link>
+          </h2>
           <RichText data={eventsBlock.eventsInformation} />
         </div>
         <div className="events">

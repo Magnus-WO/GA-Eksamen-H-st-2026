@@ -6,7 +6,9 @@ export default function SiteHeader() {
       <header className="Header ">
         <div className="header-top container">
           <p>Filmen er slutt.</p>
-          <h1 className="site-header ">FILMKLUBBEN RULLETEKST</h1>
+          <Link href={`/`} className="site-heading-link" title="Gå til forside">
+            <h1 className="site-header">FILMKLUBBEN RULLETEKST</h1>
+          </Link>
           <p>Samtalen begynner.</p>
         </div>
       </header>
