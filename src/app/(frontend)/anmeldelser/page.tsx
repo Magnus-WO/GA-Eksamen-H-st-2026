@@ -2,7 +2,7 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import { log } from "console";
 
-import NewReviewBlock from "@/app/Components/NewReviewBlock";
+import PageC2ABlock from "@/app/Components/PageC2ABlock";
 import ReviewCard from "@/app/Components/ReviewCard";
 import PageHeader from "@/app/Components/PageHeader";
 import Pagination from "@/app/Components/Pagination";
@@ -11,7 +11,6 @@ export default async function AnmeldelserPage() {
   const payload = await getPayload({ config });
   const reviewsData = await payload.find({
     collection: "anmeldelser",
-    pagination: true,
     limit: 10,
     page: 1,
   });
@@ -34,10 +33,10 @@ export default async function AnmeldelserPage() {
         switch (block.blockType) {
           case "new-review-block": {
             return (
-              <NewReviewBlock
+              <PageC2ABlock
                 title={block.title}
                 text={block.text}
-                review={block.review}
+                link={block.review}
                 image={block.image}
                 key={block.id}
               />

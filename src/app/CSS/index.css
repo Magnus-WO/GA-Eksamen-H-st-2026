@@ -23,7 +23,7 @@
 @import "../CSS/Components/ReviewsReel.css" layer(components);
 @import "../CSS/Components/ArticlesReel.css" layer(components);
 @import "../CSS/Components/EventsBlock.css" layer(components);
-@import "../CSS/Components/NewReviewBlock.css" layer(component);
+@import "../CSS/Components/PageC2ABlock.css" layer(components);
 
 @import "../CSS/Components/Button.css" layer(components);
 @import "../CSS/Components/Card.css" layer(components);
