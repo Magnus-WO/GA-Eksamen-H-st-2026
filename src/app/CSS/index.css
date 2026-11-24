@@ -17,6 +17,7 @@
 
 @import "../CSS/Components/Header.css" layer(components);
 @import "../CSS/Components/Footer.css" layer(components);
+@import "../CSS/Components/Pagination.css" layer(components);
 
 @import "../CSS/Components/C2ABanner.css" layer(components);
 @import "../CSS/Components/ReviewsReel.css" layer(components);
@@ -27,6 +28,8 @@
 @import "../CSS/Components/Button.css" layer(components);
 @import "../CSS/Components/Card.css" layer(components);
 @import "../CSS/Components/EventCard.css" layer(components);
+
+@import "../CSS/Components/TooManyPagesError.css" layer(components);
 
 @import "../CSS/utility/borders.css" layer(utility);
 @import "../CSS/utility/radius.css" layer(utility);
