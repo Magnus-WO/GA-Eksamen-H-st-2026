@@ -4,7 +4,7 @@
 
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-s);
-
+  min-width: 300px;
   width: 300px;
   height: 400px;
   backdrop-filter: blur(var(--card-blur));
@@ -36,6 +36,7 @@
       height: 30%;
       scrollbar-width: none;
       overflow-y: auto;
+      overflow-x: hidden;
       font-style: italic;
       font-size: var(--step-0);
     }
