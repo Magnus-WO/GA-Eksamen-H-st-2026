@@ -1,32 +1,32 @@
-import { Anmeldelser, Media } from "@/payload-types";
+import { Artikler, Anmeldelser, Media } from "@/payload-types";
 import Link from "next/link";
 import Image from "next/image";
 
-export type NewReviewBlockProps = {
+export type PageC2ABlockProps = {
   title: string;
   text: string;
-  review: Anmeldelser | number;
+  link: Artikler | Anmeldelser | number;
   image: Media | number;
 };
 
-export default function NewReviewBlock({
+export default function PageC2ABlock({
   title,
   text,
-  review,
+  link,
   image,
-}: NewReviewBlockProps) {
+}: PageC2ABlockProps) {
   return (
-    <article className="NewReviewBlock">
+    <article className="PageC2ABlock">
       <div>
         <h2>{title}</h2>
         <p>{text}</p>
-        {typeof review === "object" && typeof review !== "number" && (
+        {typeof link === "object" && typeof link !== "number" && (
           <Link
             className="Button"
-            href={`${review.id}`}
-            title={`Gå til ${review.title}`}
+            href={`${link.id}`}
+            title={`Gå til ${link.title}`}
           >
-            {review.title}
+            {link.title}
           </Link>
         )}
       </div>
