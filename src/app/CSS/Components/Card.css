@@ -5,8 +5,7 @@
   box-shadow: var(--box-shadow);
   border-radius: var(--border-radius-s);
 
-  min-width: 300px;
-  width: 30%;
+  width: 300px;
   height: 400px;
   backdrop-filter: blur(var(--card-blur));
 
@@ -40,5 +39,10 @@
       font-style: italic;
       font-size: var(--step-0);
     }
+  }
+}
+@media screen and (max-width: 400px) {
+  .Card {
+    width: 80vw;
   }
 }

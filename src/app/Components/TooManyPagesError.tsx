@@ -13,7 +13,7 @@ export default function TooManyPagesError({
         Vi har dessverre ikke så mange {collectionName} ennå. Men vi liker
         entusiasmen din!
       </p>
-      <Link href={`/anmeldelser`}>Trykk her for å gå til side 1</Link>
+      <Link href={`/${collectionName}`}>Trykk her for å gå til side 1</Link>
     </div>
   );
 }
