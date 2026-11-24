@@ -16,13 +16,14 @@ import { Events } from "./collections/Events";
 import { C2ABlock } from "./Blocks/C2ABlock";
 
 import { LandingPage } from "./Globals/LandingPage";
-import { ReviewsPage } from "./Globals/ReviewsPage";
+import { ReviewsGlobalPage } from "./Globals/ReviewsGlobalPage";
 
 import { ReviewsReelBlock } from "./Blocks/ReviewsReel";
 import { ArticlesReelBlock } from "./Blocks/ArticlesReel";
 import { EventsBlock } from "./Blocks/EventsBlock";
 import { NewReviewBlock } from "./Blocks/NewReviewBlock";
 import { ArticleC2ABlock } from "./Blocks/ArticleC2ABlock";
+import { ArticlesGlobalPage } from "./Globals/ArticlesGlobalPage";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -55,7 +56,11 @@ const blocks: Block[] = [
   ArticleC2ABlock,
 ];
 
-const globals: GlobalConfig[] = [LandingPage, ReviewsPage];
+const globals: GlobalConfig[] = [
+  LandingPage,
+  ReviewsGlobalPage,
+  ArticlesGlobalPage,
+];
 
 /**
  * Payload-konfigurasjon
