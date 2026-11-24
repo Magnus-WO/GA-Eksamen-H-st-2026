@@ -71,6 +71,7 @@ export interface Config {
     'artikler-reel': ArtiklerReel;
     'filmkvelder-blokk': FilmkvelderBlokk;
     'new-review-block': NewReviewBlock;
+    'article-c2a-block': ArticleC2ABlock;
   };
   collections: {
     users: User;
@@ -500,6 +501,19 @@ export interface NewReviewBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'new-review-block';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "article-c2a-block".
+ */
+export interface ArticleC2ABlock {
+  title: string;
+  image: number | Media;
+  text: string;
+  articleLink: number | Artikler;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'article-c2a-block';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

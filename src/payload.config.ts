@@ -22,6 +22,7 @@ import { ReviewsReelBlock } from "./Blocks/ReviewsReel";
 import { ArticlesReelBlock } from "./Blocks/ArticlesReel";
 import { EventsBlock } from "./Blocks/EventsBlock";
 import { NewReviewBlock } from "./Blocks/NewReviewBlock";
+import { ArticleC2ABlock } from "./Blocks/ArticleC2ABlock";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -51,6 +52,7 @@ const blocks: Block[] = [
   ArticlesReelBlock,
   EventsBlock,
   NewReviewBlock,
+  ArticleC2ABlock,
 ];
 
 const globals: GlobalConfig[] = [LandingPage, ReviewsPage];
