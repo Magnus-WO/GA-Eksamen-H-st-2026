@@ -20,7 +20,7 @@ export default async function HomePage() {
   const blocks = page.layout;
 
   return (
-    <main>
+    <main className="page">
       {blocks.map((block) => {
         switch (block.blockType) {
           case "call-to-action-block": {
