@@ -1,6 +1,6 @@
 import React from "react";
 import "../CSS/index.css";
-import SiteHeader from "../Components/Header";
+import SiteHeader from "../Components/SiteHeader";
 import localFont from "next/font/local";
 import Footer from "../Components/Footer";
 

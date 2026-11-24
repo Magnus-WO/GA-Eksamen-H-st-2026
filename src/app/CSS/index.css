@@ -15,7 +15,7 @@
 @import "../CSS/layout/pageHeader.css" layer(layout);
 @import "../CSS/layout/page.css" layer(layout);
 
-@import "../CSS/Components/Header.css" layer(components);
+@import "../CSS/Components/SiteHeader.css" layer(components);
 @import "../CSS/Components/Footer.css" layer(components);
 @import "../CSS/Components/Pagination.css" layer(components);
 
