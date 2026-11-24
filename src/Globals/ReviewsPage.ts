@@ -1,4 +1,3 @@
-import { C2ABlock } from "@/Blocks/C2ABlock";
 import { NewReviewBlock } from "@/Blocks/NewReviewBlock";
 import { GlobalConfig, slugField } from "payload";
 
