@@ -1,4 +1,4 @@
-import { Block, slugField } from "payload";
+import { Block } from "payload";
 
 export const NewReviewBlock: Block = {
   slug: "new-review-block",
