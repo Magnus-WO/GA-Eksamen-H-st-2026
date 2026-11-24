@@ -1,7 +1,7 @@
 import { NewReviewBlock } from "@/Blocks/NewReviewBlock";
 import { GlobalConfig, slugField } from "payload";
 
-export const ReviewsPage: GlobalConfig = {
+export const ReviewsGlobalPage: GlobalConfig = {
   slug: "anmeldelser-side",
 
   fields: [
@@ -18,14 +18,7 @@ export const ReviewsPage: GlobalConfig = {
       required: false,
     },
     slugField(),
-    {
-      name: "reviews",
-      label: "Anmeldelser",
-      type: "relationship",
-      relationTo: "anmeldelser",
-      required: true,
-      hasMany: true,
-    },
+
     {
       name: "pageBlocks",
       label: "layout",

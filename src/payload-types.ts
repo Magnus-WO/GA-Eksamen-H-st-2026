@@ -107,10 +107,12 @@ export interface Config {
   globals: {
     'landing-page': LandingPage;
     'anmeldelser-side': AnmeldelserSide;
+    'artikler-side': ArtiklerSide;
   };
   globalsSelect: {
     'landing-page': LandingPageSelect<false> | LandingPageSelect<true>;
     'anmeldelser-side': AnmeldelserSideSelect<false> | AnmeldelserSideSelect<true>;
+    'artikler-side': ArtiklerSideSelect<false> | ArtiklerSideSelect<true>;
   };
   locale: null;
   widgets: {
@@ -855,8 +857,34 @@ export interface AnmeldelserSide {
    */
   generateSlug?: boolean | null;
   slug: string;
-  reviews: (number | Anmeldelser)[];
   pageBlocks?: NewReviewBlock[] | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "artikler-side".
+ */
+export interface ArtiklerSide {
+  id: number;
+  title: string;
+  subtitle: string;
+  pageBlocks?:
+    | {
+        title: string;
+        image: number | Media;
+        text: string;
+        articleLink: number | Artikler;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'article-c2a-block';
+      }[]
+    | null;
+  /**
+   * When enabled, the slug will auto-generate from the title field on save and autosave.
+   */
+  generateSlug?: boolean | null;
+  slug: string;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -933,7 +961,6 @@ export interface AnmeldelserSideSelect<T extends boolean = true> {
   subtitle?: T;
   generateSlug?: T;
   slug?: T;
-  reviews?: T;
   pageBlocks?:
     | T
     | {
@@ -954,6 +981,33 @@ export interface NewReviewBlockSelect<T extends boolean = true> {
   review?: T;
   id?: T;
   blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "artikler-side_select".
+ */
+export interface ArtiklerSideSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  pageBlocks?:
+    | T
+    | {
+        'article-c2a-block'?:
+          | T
+          | {
+              title?: T;
+              image?: T;
+              text?: T;
+              articleLink?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  generateSlug?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
